@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Penggajian_Karyawan.Models.Gaji>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPegawai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdGolongan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tunjangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Potongan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPegawai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGolongan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tunjangan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Potongan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdGaji"><i class="fa fa-marker fa-lg"></i></a>
+                <a asp-action="Details" asp-route-id="@item.IdGaji"><i class="fas fa-list"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.IdGaji"><i class="fa fa-trash-alt fa-lg"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
